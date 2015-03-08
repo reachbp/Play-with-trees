@@ -1,0 +1,22 @@
+[{
+    node:'ColumnTree Example',
+    user:'',
+   uiProvider:'col',
+    children:[{
+        node:'bharathi priyaa edited this...',
+       uiProvider:'col',
+        user:'',
+        leaf:true,
+       
+    },{
+        node:'Add CSS to make it look fly',
+       uiProvider:'col',
+        leaf:true,
+       
+    },{
+        node:'Test and make sure it works',
+      uiProvider:'col',
+        leaf:true,
+      
+    }]
+}]

@@ -1,0 +1,79 @@
+[	{
+node:'Root',
+nodeid:'1',user:'',
+uiProvider:'col',
+cls:'master-task',
+ leaf:false,
+iconCls:'task-folder',
+  children:[
+			{
+node:'A',
+nodeid:'2',user:'',
+uiProvider:'col',
+cls:'master-task',
+ leaf:false,
+iconCls:'task-folder',
+  children:[
+			{
+node:'ChildC',
+nodeid:'20',user:'',
+uiProvider:'col',
+cls:'master-task',
+ leaf:true,
+ iconCls:'task'
+}]
+},	{
+node:'B',
+nodeid:'21',user:'',
+uiProvider:'col',
+cls:'master-task',
+ leaf:false,
+iconCls:'task-folder',
+  children:[
+			{
+node:'ChildD',
+nodeid:'22',user:'',
+uiProvider:'col',
+cls:'master-task',
+ leaf:true,
+ iconCls:'task'
+},	{
+node:'childE',
+nodeid:'24',user:'',
+uiProvider:'col',
+cls:'master-task',
+ leaf:true,
+ iconCls:'task'
+}]
+},	{
+node:'C',
+nodeid:'50',user:'',
+uiProvider:'col',
+cls:'master-task',
+ leaf:false,
+iconCls:'task-folder',
+  children:[
+			{
+node:'ChildFnew',
+nodeid:'23',user:'',
+uiProvider:'col',
+cls:'master-task',
+ leaf:true,
+ iconCls:'task'
+},	{
+node:'DEF',
+nodeid:'51',user:'',
+uiProvider:'col',
+cls:'master-task',
+ leaf:true,
+ iconCls:'task'
+},	{
+node:'GH',
+nodeid:'52',user:'',
+uiProvider:'col',
+cls:'master-task',
+ leaf:true,
+ iconCls:'task'
+}]
+}]
+}]

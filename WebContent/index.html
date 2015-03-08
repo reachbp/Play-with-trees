@@ -1,0 +1,127 @@
+<html>
+<head>
+  <title>Testing MBox</title>
+
+	<!-- LIBS -->     
+	<script type="text/javascript" src="FileTreePanel/ext/adapter/yui/yui-utilities.js"></script>
+	<script type="text/javascript" src="FileTreePanel/ext/adapter/yui/ext-yui-adapter.js"></script>
+    <script type="text/javascript" src="FileTreePanel/ext/ext-all.js"></script>
+	<script type="text/javascript" src="MessageBox.js"></script>
+	<script type="text/javascript">
+
+		function validName(s) {
+			if(s.indexOf(' ') > -1)	{ return 'Spaces are not allowed'; }
+			if(s.length%3 != 0)		{ return 'Must have length of multiple of 3'; }
+			if(s.length == 0)		{ return 'Cannot be blank.'; }
+			return true;
+		}
+
+		function validName2(s) {
+			var eMsg = [];
+			if(s.indexOf(' ') > -1) { eMsg.push('Spaces are not allowed.'); }
+			if(s.length%3 != 0)		{ eMsg.push('Must have length of multiple of 3.'); }
+			if(s.length == 0)		{ eMsg.push('Cannot be blank.'); }
+			var invalidChars =		inspectString(s,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-'); // list of valid characters
+			if(invalidChars !== '') {
+				eMsg.push('Invalid Characters: \'' + invalidChars + '\'');
+			}
+			return eMsg;
+		}
+
+		function inspectString(s,ref){
+			var invalidChars = '';
+			for (var i=0; i<s.length; i++) {
+				if (ref.indexOf(s.substring(i,i+1)) == -1) 
+					invalidChars += s.substring(i,i+1);
+			}
+			return invalidChars;
+		}
+
+
+		function showResultText(btn, text){
+			document.getElementById('results').innerHTML = 'You clicked the <b>' + btn + '</b> button and entered the text <b>"' + text + '"</b>';
+		};
+
+		Ext.onReady(function(){
+			Ext.get('mb1').on('click', function(e){
+			alert("this clicked");
+			Ext.MessageBox.prompt('Name', 'Please enter your name:', showResultText, null, false, validName2);	//Ext.MessageBox.prompt('Name', 'Please enter your name:', showResultText, null, false, validName);
+			});
+			Ext.get('mb2').on('click', function(e){
+				Ext.MessageBox.prompt('Name', 'Please enter your name:', showResultText, null, false, validName2);
+			});
+			Ext.get('mb3').on('click', function(e){
+				Ext.MessageBox.prompt('Name', 'Please enter your name:', showResultText, null, true, validName);
+			});
+			Ext.get('mb4').on('click', function(e){
+				Ext.MessageBox.prompt('Name', 'Please enter your name:', showResultText, null, true, validName2);
+			});
+			Ext.get('mb5').on('click', function(e){
+				Ext.MessageBox.show({
+				   title: 'Name',
+				   msg: 'Please Comfirm/Edit your name:',
+				   buttons: Ext.MessageBox.YESNOCANCEL,
+				   multiline: true,
+				   validator: validName2,
+				   fn: showResultText,
+				   prompt: true,
+				   animEl: 'mb3'
+			   });
+			});
+
+		});
+	</script>
+
+	<!-- Style -->
+  	<link rel="stylesheet" type="text/css" href="FileTreePanel/ext/resources/css/ext-all.css" />
+    <link rel="stylesheet" type="text/css" href="FileTreePanel/ext/resources/css/ytheme-aero.css" />
+	<style>
+		#x-msg-box .ext-mb-text {
+			margin-top:4px;
+			font:normal 13px verdana,tahoma,sans-serif;
+		}
+		#x-msg-box .ext-mb-eMsg {
+			margin:0px;
+			padding:0px;
+			font:normal 11px verdana,tahoma,sans-serif;
+			color:red;
+		}
+	</style>
+
+</head>
+<body>
+	<div id ="container">
+		<p>
+			<b>Prompt</b><br />
+			Single Line prompt with validation. Validator returns (true | string)<br />
+			<button id="mb1">Show Me</button>
+		</p>
+		<p><br/></p>
+		<p>
+			<b>Prompt</b><br />
+			Single Line prompt with validation. Validator returns (true | [string])<br />
+			<button id="mb2">Show Me</button>
+		</p>
+		<p><br/></p>
+		<p>
+			<b>Multi-line Prompt</b><br />
+			Multi Line prompt with validation. Validator returns (true | string)<br />
+			<button id="mb3">Show Me</button>
+		</p>
+		<p><br/></p>
+		<p>
+			<b>Multi-line Prompt</b><br />
+			Multi Line prompt with validation. Validator returns (true | [string])<br />
+			<button id="mb4">Show Me</button>
+		</p>
+		<p><br/></p>
+		<p>
+			<b>Multi-line Prompt Using Ext.MessageBox.show()</b><br />
+			Multi Line prompt with validation. Validator returns (true | [string])<br />
+			<button id="mb5">Show Me</button>
+		</p>
+
+		<div id="results" class="ext-mb-eMsg" style="margin:20px;color:red;"></div>
+	</div>
+</body>
+</html>

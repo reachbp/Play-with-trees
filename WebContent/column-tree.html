@@ -1,0 +1,57 @@
+<html>
+<head>
+<META http-equiv="refresh" content="6000;URL=http://localhost:8080/FolderTreeExtJS/column-tree.html">
+<title>Customizing TreePanel</title>
+<link rel="stylesheet" type="text/css" href="FileTreePanel/ext/resources/css/ext-all.css" />
+
+ 	<script type="text/javascript" src="FileTreePanel/ext/adapter/ext/ext-base.js"></script>
+    <script type="text/javascript" src="FileTreePanel/ext/ext-all.js"></script>
+    <script type="text/javascript" src="FileTreePanel/ext/examples/tree/ColumnNodeUI.js"></script>
+    <script type="text/javascript" src="column-tree.js"></script>
+    <link rel="stylesheet" type="text/css" href="FileTreePanel/ext/examples/shared/examples.css" />
+<link rel="stylesheet" type="text/css" href="FileTreePanel/ext/examples/tree/column-tree.css" />
+
+<link rel="stylesheet" type="text/css" href="FileTreePanel/ext/resources/css/tree.css" />
+<style type="text/css">
+        .x-window-dlg .ext-mb-download {
+            background:transparent url(FileTreePanel/ext/examples/message-box/images/download.gif) no-repeat top left;
+            height:46px;
+        }
+    </style>
+    <style type="text/css">
+        .tip-target {
+            width: 100px;
+            text-align:center;
+            padding: 5px 0;
+            border:1px dotted #99bbe8;
+            background:#dfe8f6;
+            color: #15428b;
+            cursor:default;
+            margin:10px;
+            font:bold 11px tahoma,arial,sans-serif;
+            float:center;
+        }
+    </style>
+    </head>
+<body onbeforeunload="aler()" >
+
+<div id="tree-ct">
+</div>
+
+<br><br><br>
+<a href="javascript:writeAsXml()" id="tip1" style="display:none" class="tip-target" >Save Tree</a>
+<a href="javascript:loadComplete()" id="tip2" class="tip-target" >Save Tree</a>
+<a href="javascript:refreshDoc()" id="tip3" class="tip-target" >Refresh Tree</a><br><br>
+<a href="javascript:validate()" style="display:none">validate</a><br><br>
+
+<br><br>
+<form action="Controller" method="post">
+<input type="submit" style="display:none"  name="SUBMIT" value="load">
+
+
+</form>
+<textarea style="display:none" name="xml" cols=20 rows=20>
+</textarea>
+<br /><br /><br /><br /><br />
+</body>
+</html>
