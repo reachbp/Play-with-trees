@@ -34,18 +34,14 @@ public class XmlParserNew {
 	public void ParserNew() {
 		XMLReader parser = new SAXParser();
 		try {
-			// ContentHandler contentHandler = new MyContentHandler();
-			// parser.setContentHandler(contentHandler);
-			// parser.parse("nodedata.xml");
 			SAXBuilder b = new SAXBuilder();
 			String path = "C:/Documents and Settings/Administrator/workspace/FolderTreeExtJS";
 			//Get all nodes from the database
 			nodesDB=new DBConnection().allNodesFromDB();
 			Document doc = b.build(new FileInputStream(path + "/TreeData.xml"));
 			Element rootT = doc.getRootElement();
-			// System.out.println("before show childs "+webapp.getText());
 			showChilds(rootT);
-			// System.out.println("The number of children is "+count);
+			
 			/*
 			 * Check for deleted nodes.. Count holds the Number of nodes present
 			 * in the tree. Compare with the total number of nodes in the
@@ -53,7 +49,7 @@ public class XmlParserNew {
 			 */
 			updateDeletedNode(rootT);
 			displayNodes();
-			// System.out.println(webapp.getName());
+			
 
 		} catch (IOException e) {
 
@@ -80,17 +76,12 @@ public class XmlParserNew {
 			/** **Compare node with the one with Database*** */
 			if (nodeid != 0)
 				checkNodeChanged(elem);
-			// System.out.println("the Element Title is "
-			// + elem.getAttributeValue("title") + "and id is"
-			// + elem.getAttributeValue("id"));
 			for (int i = 0; i < allchilds.size(); i++)
 				showChilds((Element) allchilds.get(i));
 		} else {
 			if (nodeid != 0)
 				checkNodeChanged(elem);
-			// System.out.println("the Element Title is "
-			// + elem.getAttributeValue("title") + "and id is"
-			// + elem.getAttributeValue("id"));
+			
 		}
 	}
 
