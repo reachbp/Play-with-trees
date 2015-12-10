@@ -24,11 +24,9 @@ public class FileWriterXJ {
 			 * Writes and XML File
 			 */
 			System.out.println("the text is from writefiletext " + text);
-			//String path="C:/Documents and Settings/Administrator/workspace/FolderTree";
 			String path="C:/Documents and Settings/Administrator/workspace/FolderTreeExtJS";
 			
 			BufferedWriter out;
-			//	out = new BufferedWriter(new FileWriter(path+"/nodedata1.xml"));
 				out = new BufferedWriter(new FileWriter(path+"/TreeData.xml"));
 				out.write(text);
 			out.close();
