@@ -6,7 +6,7 @@ cls:'master-task',
  leaf:false,
 iconCls:'task-folder',
   children:[
-			{
+	      		{
 node:'A',
 nodeid:'2',user:'',
 uiProvider:'col',
